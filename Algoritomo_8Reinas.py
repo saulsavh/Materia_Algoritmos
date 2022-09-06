@@ -10,7 +10,7 @@ La posicion del la reina será Pos_reinas[i] = k
 """
 
 
-Pos_reinas = [-1, -1, -1, -1]
+
 
 """
 La posicion del la reina 1 será Pos_reinas[i] = k y por comparacion la reina 2 sera Pos_reinas[x] = y
@@ -20,23 +20,29 @@ Para la diagonal izq el valor (k-i) de reina 1 no puede ser igual al (y-x) de re
 Para la diagonal der el valor |(i-x)| no debe ser igual al valor |(k-y)|,  |(i-x)| != |(k-y)|
 """
 def comp_pos(k, Pos_reinas, num_reinas):
-    i = 0
-    while i<num_reinas:
-        if (i == k or Pos_reinas[i] == Pos_reinas[k] or abs(i - k) == abs(Pos_reinas[i]- Pos_reinas[k])):
+    cont = 0
+    while cont<num_reinas:
+        #if (cont == k or Pos_reinas[cont] == Pos_reinas[k] or abs(cont - k) == abs(Pos_reinas[cont]- Pos_reinas[k])):
+        if (cont == k or Pos_reinas[cont] == Pos_reinas[k]):
             return False
+        cont = cont+1
+    return True
 
 def backtraking(nivel, num_reinas, Pos_reinas ):
-
-    if nivel == num_reinas:
+    
+    if nivel == num_reinas-1:
         print(f"Solucion es ")
         for i in range(num_reinas):
             print(f"({i}, {Pos_reinas[i]}), ")
-        return 0
+        return Pos_reinas
 
     else:
         for k in range(num_reinas):
+            Pos_reinas[nivel]=k
             if ( comp_pos(k, Pos_reinas, num_reinas)):
-                backtraking(nivel+1, num_reinas, Pos_reinas)
+                nivel = nivel + 1
+                backtraking(nivel, num_reinas, Pos_reinas)
+            
 
 
 
@@ -44,7 +50,7 @@ def backtraking(nivel, num_reinas, Pos_reinas ):
 
 nivel = 0
 num_reinas = 8
-
+Pos_reinas = []
 for i in range (8):
     Pos_reinas.append(-1)
 
@@ -52,5 +58,6 @@ for i in range (8):
 # %%
 print("inicio")
 backtraking(nivel, num_reinas, Pos_reinas)
+
 
 # %%
