@@ -21,9 +21,10 @@ Para la diagonal der el valor |(i-x)| no debe ser igual al valor |(k-y)|,  |(i-x
 """
 def comp_pos(k, Pos_reinas, num_reinas):
     cont = 0
+    if (cont == k): cont = cont+1
     while cont<num_reinas:
-        #if (cont == k or Pos_reinas[cont] == Pos_reinas[k] or abs(cont - k) == abs(Pos_reinas[cont]- Pos_reinas[k])):
-        if (cont == k or Pos_reinas[cont] == Pos_reinas[k]):
+        if (Pos_reinas[cont] == Pos_reinas[k] or abs(cont - k) == abs(Pos_reinas[cont]- Pos_reinas[k]) or abs() == abs()):
+        #if (cont == k or Pos_reinas[cont] == Pos_reinas[k]):
             return False
         cont = cont+1
     return True
