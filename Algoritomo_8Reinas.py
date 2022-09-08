@@ -23,7 +23,7 @@ def comp_pos(k, Pos_reinas, num_reinas):
     cont = 0
     if (cont == k): cont = cont+1
     while cont<num_reinas:
-        if (Pos_reinas[cont] == Pos_reinas[k] or abs(cont - k) == abs(Pos_reinas[cont]- Pos_reinas[k]) or abs() == abs()):
+        if (Pos_reinas[cont] == Pos_reinas[k] or abs(cont - k) == abs(Pos_reinas[cont]- Pos_reinas[k]) or (k-Pos_reinas[k]) == (cont - Pos_reinas[cont])):
         #if (cont == k or Pos_reinas[cont] == Pos_reinas[k]):
             return False
         cont = cont+1
@@ -53,7 +53,7 @@ nivel = 0
 num_reinas = 8
 Pos_reinas = []
 for i in range (8):
-    Pos_reinas.append(-1)
+    Pos_reinas.append(-10)
 
 
 # %%
