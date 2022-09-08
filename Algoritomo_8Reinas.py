@@ -29,6 +29,7 @@ def comp_pos(k, Pos_reinas, num_reinas):
         cont = cont+1
     return True
 
+
 def backtraking(nivel, num_reinas, Pos_reinas ):
     
     if nivel == num_reinas-1:
