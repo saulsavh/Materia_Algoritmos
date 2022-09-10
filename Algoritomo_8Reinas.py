@@ -22,7 +22,7 @@ Para la diagonal der el valor |(i-x)| no debe ser igual al valor |(k-y)|,  |(i-x
 def comp_pos(k, Pos_reinas, num_reinas):
     cont = 0
     
-    while cont<num_reinas:
+    while cont<k:
         if (cont == k): cont = cont+1
         if (Pos_reinas[cont] == Pos_reinas[k] or (cont - k) == (Pos_reinas[cont]- Pos_reinas[k]) or abs(k-Pos_reinas[cont]) == abs(cont - Pos_reinas[k])):
         #if (cont == k or Pos_reinas[cont] == Pos_reinas[k]):
@@ -42,9 +42,12 @@ def backtraking(nivel, num_reinas, Pos_reinas ):
     else:
         for k in range(num_reinas):
             Pos_reinas[nivel]=k
-            if ( comp_pos(k, Pos_reinas, num_reinas)):
+            if ( comp_pos(nivel, Pos_reinas, num_reinas)):
                 nivel = nivel + 1
                 backtraking(nivel, num_reinas, Pos_reinas)
+            if k == (num_reinas-1):
+                nivel = nivel - 1
+                k = Pos_reinas[nivel]
             
 
 
